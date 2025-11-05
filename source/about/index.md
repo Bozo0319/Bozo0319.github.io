@@ -1,5 +1,5 @@
 ---
-title: about
+title: 关于我
 date: 2025-11-05 20:45:27
 ---
-这里是我的about
+- [豆瓣](https://www.douban.com/people/215852670/)

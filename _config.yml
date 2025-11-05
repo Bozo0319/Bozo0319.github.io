@@ -102,3 +102,11 @@ theme: polarbear
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+markdown:
+  render:
+    html: true
+    linkify: true
+    typographer: true
+  plugins:
+    - markdown-it-attrs

@@ -4,4 +4,6 @@ date: 2025-11-05 20:45:27
 ---
 
 
-[![豆瓣](/assets/douban2.png){width=24}](https://www.douban.com/people/215852670/)
+<a href="https://www.douban.com/people/215852670/">
+  <img src="/assets/douban2.png" alt="豆瓣" width="24" style="height:auto;">
+</a>

@@ -2,7 +2,7 @@
 title: Appreciate the beauty
 date: 2025-11-05 16:06:10
 categories: [随笔]
-tags: [美好]
+tags: [美好，随笔]
 ---
 
 20251105 

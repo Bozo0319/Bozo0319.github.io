@@ -40,3 +40,41 @@
 @media (max-width:640px){
   .site-title .logo{ font-size:1.6rem; }
 }
+
+/* 如果 custom.scss 里还没能用到 $theme-color，就取消下一行注释 */
+// @import "../variables";
+
+/* ===== 1) 顶部导航：Archives / About（常见类名 & 兜底选择器） ===== */
+.site-nav a:hover,
+.menu a:hover,
+.nav a:hover,
+.header a[href^="/archives"]:hover,
+.header a[href^="/about"]:hover,
+a[href^="/archives"]:hover,   /* 兜底：即使类名不同也能命中 */
+a[href^="/about"]:hover {
+  color: $theme-color !important;   /* 若无此变量：改成 var(--theme-color) 或具体色值 */
+  transition: none !important;      /* 不要动画 */
+  text-decoration: none;
+}
+
+/* ===== 2) 分类/标签：文章中的、侧栏的、列表页里的 ===== */
+/* 文章页/首页文章卡片里的标签与分类 */
+.post-tags a:hover,
+.post-categories a:hover,
+.post-meta a[href*="/tags/"]:hover,
+.post-meta a[href*="/categories/"]:hover,
+
+/* 侧栏/页脚的标签云或分类列表 */
+.tagcloud a:hover,
+.tags a:hover,
+.categories a:hover,
+
+/* 归档/分类/标签聚合页的链接（兜底） */
+.archive a[href*="/tags/"]:hover,
+.archive a[href*="/categories/"]:hover,
+a[href*="/tags/"]:hover,
+a[href*="/categories/"]:hover {
+  color: $theme-color !important;
+  transition: none !important;
+  text-decoration: none;
+}

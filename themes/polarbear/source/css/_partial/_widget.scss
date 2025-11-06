@@ -41,6 +41,12 @@
             color: rgba(0, 0, 0, 0.6);
         }
 
+        .category-list-link:hover,
+        .category-list-link:focus {
+            color: $theme-color;   /* 若无此变量：用 var(--theme-color) 或具体色值 */
+            text-decoration: none; /* 可选：去下划线 */
+        }
+
         .category-list-count {
             padding-left: 5px;
             color: #999;
@@ -73,6 +79,11 @@
 
         .tag-list-link {
             color: rgba(0,0,0,.6);
+        }
+        .tag-list-link:hover,
+        .tag-list-link:focus {
+            color: $theme-color;   /* 若无此变量：用 var(--theme-color) 或具体色值 */
+            text-decoration: none; /* 可选：去下划线 */
         }
     }
 

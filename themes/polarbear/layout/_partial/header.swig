@@ -1,6 +1,9 @@
 <div class="site-header-inner">
     <h1 class="site-title">
-        <a href="{{ url_for('.') }}" class="logo">{{ config.title }}</a>
+        <a href="{{ url_for('/') }}" class="logo">{{ config.title }}</a>
+        {% if config.subtitle %}
+        <span class="site-subtitle-inline">{{ config.subtitle }}</span>
+        {% endif %}
     </h1>
 
     <nav id="nav-top">

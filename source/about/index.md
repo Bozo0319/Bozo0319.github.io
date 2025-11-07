@@ -1,9 +1,25 @@
 ---
-title: To find more
+title: Emily说
 date: 2025-11-05 20:45:27
 ---
 <br>
-这里是Emily的文字存档。
+Hallo!<br>
+这里是我的赛博文字仓库。
+<br>
+<br>
+这个博主很懒，想起来再加，先这样，嗯。
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+To find more ——
+<br>
 <br>
 <a href="https://www.douban.com/people/215852670/"
    style="display:inline-block;text-decoration:none;border-bottom:0;">

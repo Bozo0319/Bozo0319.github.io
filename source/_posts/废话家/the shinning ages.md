@@ -1,7 +1,7 @@
 ---
 title: The Shinning Ages
 date: 2025-04-09 10:19:00
-categories: [随笔]
+categories: [废话家]
 description: 是那些时代中的金子一般的心灵没有停止过发光。
 tags: 
  - 美好

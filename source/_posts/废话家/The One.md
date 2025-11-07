@@ -1,7 +1,7 @@
 ---
 title: The One
 date: 2025-03-24 12:09:00
-categories: [随笔]
+categories: [废话家]
 description: 接受缘分让我遇到的，然后深深喜欢上自己所选择的。它们就是the one.
 tags: 
  - 美好

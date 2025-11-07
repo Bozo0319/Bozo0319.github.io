@@ -1,7 +1,7 @@
 ---
 title: A Lonely Place
 date: 2025-04-09 10:59:00
-categories: [随笔]
+categories: [废话家]
 description: 他完全可以自我成就，走到他的路上去，尽管那又会是一个非常孤独的所在，一个完全是他自己寻找到的地方。  
 tags: 
  - 随笔

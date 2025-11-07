@@ -1,7 +1,7 @@
 ---
 title: Appreciate the beauty
 date: 2025-11-05 16:06:10
-categories: [随笔]
+categories: [废话家]
 description: “这一刻你是一个最快乐的人，你看见你想看见的，你将它发生。”
 tags: 
  - 美好

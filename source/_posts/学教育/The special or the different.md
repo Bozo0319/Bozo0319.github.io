@@ -1,7 +1,7 @@
 ---
 title: The Special or the different
 date: 2025-03-30 11:28:00
-categories: [教育观察]
+categories: [学教育]
 description: 他不可能成为the first or best. 一个双A小孩能弄懂游戏规则就很不容易，指望他胜出，无异于痴人说梦。<br>我的世界和孩子的世界是完全不同的，我不应该介入他的世界。<br>我只需要守护他的天真和special就好。
 tags: 
  - 教育

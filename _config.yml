@@ -110,3 +110,15 @@ markdown:
     typographer: true
   plugins:
     - markdown-it-attrs
+
+# Search
+search:
+  path: search.json
+  format: json
+  limit: 10000     # 够大即可
+  fields:
+    - title
+    - slug
+    - content
+    - tags
+    - categories

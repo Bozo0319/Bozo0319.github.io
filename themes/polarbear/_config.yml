@@ -19,7 +19,7 @@ rss: default
 menu:
   Archives: /archives
   About: /about
-  Leave a note: /guestbook
+  Guestbook: /guestbook
 
 # ===========================================
 # Widget Settings

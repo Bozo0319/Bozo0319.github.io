@@ -17,7 +17,7 @@ Hallo!<br>
 <br>
 
 nicths333@gmail.com  
-本站所有内容禁止转载。  
+全站内容禁止转载。  
 Colophon：Hexo + Polar Bear + 自定义
 
 <span>

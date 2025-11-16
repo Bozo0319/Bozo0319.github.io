@@ -1,5 +1,5 @@
 ---
-title: NZ旅行记 2024-04
+title: NZ旅行记
 date: 2024-04-28 00:00:00
 categories: [生活家]
 description: 真实的生活永远在此处。

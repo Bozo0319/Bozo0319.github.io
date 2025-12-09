@@ -1,5 +1,5 @@
 ---
-title: 书｜梵高+尼采
+title: 抄书｜梵高+尼采
 date: 2025-12-1 12:25:00
 categories: [存文字]
 description: 走得远些，走得深些，再向大海撒下渔网。

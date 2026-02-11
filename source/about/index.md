@@ -31,3 +31,7 @@ Colophon：Hexo + Polar Bear + 自定义
     <img src="/assets/coding cat.png" alt="blog" style="width:24px !important;height:auto;">
 </a>
 </span>
+<a href="https://www.douban.com/people/289970575/"
+   style="display:inline-block;text-decoration:none;border-bottom:0;margin-right:10px">
+  <img src="/assets/douban2.png" alt="豆瓣" width="24" style="height:auto;">
+</a>

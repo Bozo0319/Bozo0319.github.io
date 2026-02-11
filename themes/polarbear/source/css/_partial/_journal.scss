@@ -74,3 +74,17 @@
   font-weight: 600;
 }
 
+.journal-post-title {
+  margin: 6px 0 0;
+  font-size: 16px;
+  font-weight: 600;
+
+  a {
+    color: $global-font-color;
+    text-decoration: none;
+
+    &:hover {
+      border-bottom: 1px solid $theme-color;
+    }
+  }
+}

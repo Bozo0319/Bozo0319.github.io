@@ -77,7 +77,9 @@
               </span>
             {% endif %}
           </div>
-
+            <h2 class="journal-post-title">
+                {{ post.title }}
+            </h2>
           <div class="journal-content">
             {{ post.content }}
           </div>

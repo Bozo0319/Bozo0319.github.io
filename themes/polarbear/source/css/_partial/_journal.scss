@@ -1,0 +1,76 @@
+.journal-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.journal-header {
+  h1 {
+    margin: 0 0 6px;
+  }
+
+  .journal-sub {
+    margin: 0 0 18px;
+    opacity: .7;
+  }
+}
+
+.journal-item {
+  border: 1px solid rgba(127,127,127,.25);
+  border-radius: 16px;
+  padding: 14px 12px;
+  margin: 12px 0;
+}
+
+.journal-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: baseline;
+  opacity: .75;
+}
+
+.journal-tag {
+  font-size: 12px;
+  padding: 2px 8px;
+  border: 1px solid rgba(127,127,127,.35);
+  border-radius: 999px;
+}
+
+.journal-content {
+  margin-top: 8px;
+}
+
+.journal-empty {
+  opacity: .7;
+}
+
+.journal-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0 18px;
+}
+
+.journal-filter-btn {
+  border: 1px solid rgba(127, 127, 127, 0.35);
+  background: transparent;
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: $theme-color;
+    color: $theme-color;
+  }
+}
+
+.journal-filter-btn.is-active {
+  background: $theme-color;
+  border-color: $theme-color;
+  color: #fff;
+  font-weight: 600;
+}
+

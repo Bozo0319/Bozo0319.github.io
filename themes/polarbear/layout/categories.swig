@@ -8,7 +8,13 @@
       {{ _p('counter.categories', site.categories.length) }}
     </div>
     <div class="categories-tags">
-      {{ list_categories({style: null, separator: ' ', depth: '-1'}) }}
+      {% for category in site.categories.toArray() %}
+        {% if category.name != 'journal' %}
+          <a class="category-link" href="{{ url_for(category.path) }}">
+            {{ category.name }}
+          </a>
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
 {% endblock %}

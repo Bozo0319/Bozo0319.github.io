@@ -1,15 +1,15 @@
 ---
-title: Emily说
+title: Emily Says
 date: 2025-11-05 20:45:27
 ---
 <br>
-Thinking through writing.
-
+Thinking through writing.  
+<br>
 <br>
 A digital archive of thought.
 <br>
 <br>
-Me：Mother. Cat lover. Homemaker. Dreamer. Practitioner of love. Professional rambler. Reader.<br>
+Me：Mother. Cat lover. Dreamer. Practitioner of the art of living & loving. Professional rambler. Reader.<br>
 <br>
 Interests: Cats · Reading · Writing · Music · Coffee · Sleep · Tramping
 <br>

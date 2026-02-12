@@ -19,18 +19,21 @@ Cats · Reading · Writing · Music · Coffee · Sleep · Tramping
 <br>
 <br>
 Contact  
-
+<br>
 nicths333@gmail.com
 <br>
 <br>
 Copyright  
+<br>
 All content on this site is protected. No reproduction or redistribution without permission.
 <br>
 <br>
 Colophon  
+<br>
 Built with Hexo and the Polar Bear theme. Custom modifications.
 <br>
 <br>
+
 <span>
 <a href="https://www.douban.com/people/215852670/"
    style="display:inline-block;text-decoration:none;border-bottom:0;margin-right:10px">

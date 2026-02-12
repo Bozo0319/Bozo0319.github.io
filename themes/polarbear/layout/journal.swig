@@ -36,28 +36,24 @@
     {% endfor %}
   </div>
 
-  {# ===== 列出 journal 广播 ===== #}
-  {% set items = [] %}
-  {% for post in site.posts %}
-    {% set is_journal = false %}
-    {% if post.categories %}
-      {% for c in post.categories %}
-        {% if c.name == 'journal' %}
-          {% set is_journal = true %}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-    {% if is_journal %}
-      {% set items = items.concat([post]) %}
-    {% endif %}
-  {% endfor %}
+  {# ===== 直接渲染 journal 广播（不在 swig 里排序/拼数组）===== #}
+  <div class="journal-list" id="journalList">
+    {% set journal_count = 0 %}
 
-  {% if items.length == 0 %}
-    <p class="journal-empty">还没有广播。</p>
-  {% else %}
-    <div class="journal-list">
-      {% for post in items %}
-        {# 把该条广播的 tags 拼成 data-tags，供前端筛选 #}
+    {% for post in site.posts %}
+      {% set is_journal = false %}
+      {% if post.categories %}
+        {% for c in post.categories %}
+          {% if c.name == 'journal' %}
+            {% set is_journal = true %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+      {% if is_journal %}
+        {% set journal_count = journal_count + 1 %}
+
+        {# 拼 data-tags #}
         {% set tagStr = '' %}
         {% if post.tags and post.tags.length %}
           {% for t in post.tags %}
@@ -65,7 +61,7 @@
           {% endfor %}
         {% endif %}
 
-        <article class="journal-item" data-tags="{{ tagStr | trim }}">
+        <article class="journal-item" data-tags="{{ tagStr | trim }}" data-date="{{ post.date.toISOString() }}">
           <div class="journal-meta">
             <time datetime="{{ post.date.toISOString() }}">{{ date(post.date, "YYYY-MM-DD HH:mm") }}</time>
 
@@ -77,38 +73,55 @@
               </span>
             {% endif %}
           </div>
-        <div class="journal-post-title">
+
+          <div class="journal-post-title">
             {{ post.title }}
-        </div>
+          </div>
+
           <div class="journal-content">
             {{ post.content }}
           </div>
         </article>
-      {% endfor %}
-    </div>
-  {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    {% if journal_count == 0 %}
+      <p class="journal-empty">还没有广播。</p>
+    {% endif %}
+  </div>
 </section>
 
 <script>
-(function(){
-  var btns = document.querySelectorAll('.journal-filter-btn');
-  var items = document.querySelectorAll('.journal-item');
+(function () {
+  var list = document.getElementById('journalList');
+  if (!list) return;
 
-  function setActive(btn){
-    btns.forEach(function(b){ b.classList.remove('is-active'); });
+  // 1) 强制按时间逆序排序（最新在前）
+  var nodes = Array.prototype.slice.call(list.querySelectorAll('.journal-item'));
+  nodes.sort(function (a, b) {
+    var da = new Date(a.getAttribute('data-date')).getTime();
+    var db = new Date(b.getAttribute('data-date')).getTime();
+    return db - da;
+  });
+  nodes.forEach(function (n) { list.appendChild(n); });
+
+  // 2) Tag 筛选
+  var btns = document.querySelectorAll('.journal-filter-btn');
+  function setActive(btn) {
+    Array.prototype.forEach.call(btns, function (b) { b.classList.remove('is-active'); });
     btn.classList.add('is-active');
   }
 
-  function filter(tag){
-    items.forEach(function(it){
+  function filter(tag) {
+    nodes.forEach(function (it) {
       var tags = (it.getAttribute('data-tags') || '').split(/\s+/).filter(Boolean);
-      if(tag === '__all') { it.style.display = ''; return; }
+      if (tag === '__all') { it.style.display = ''; return; }
       it.style.display = tags.indexOf(tag) >= 0 ? '' : 'none';
     });
   }
 
-  btns.forEach(function(btn){
-    btn.addEventListener('click', function(){
+  Array.prototype.forEach.call(btns, function (btn) {
+    btn.addEventListener('click', function () {
       var tag = btn.getAttribute('data-tag');
       setActive(btn);
       filter(tag);

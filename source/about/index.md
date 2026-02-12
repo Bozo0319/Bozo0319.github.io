@@ -11,7 +11,7 @@ A digital archive of thought.
 <br>
 Me：Mother. Cat lover. Homemaker. Dreamer. Practitioner of love. Professional rambler. Reader.<br>
 <br>
-Interests:Cats · Reading · Writing · Music · Coffee · Sleep · Tramping
+Interests: Cats · Reading · Writing · Music · Coffee · Sleep · Tramping
 <br>
 <br>
 <br>

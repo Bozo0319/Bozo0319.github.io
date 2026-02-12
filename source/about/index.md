@@ -9,7 +9,7 @@ Blog
 A digital archive of thought.
 <br>
 <br>
-Me  
+About  
 <br>
 Mother. Cat lover. Dreamer. Practitioner of the art of living & loving. Professional rambler. Reader.<br>
 <br>
@@ -18,10 +18,17 @@ Interests
 Cats · Reading · Writing · Music · Coffee · Sleep · Tramping
 <br>
 <br>
+Contact  
+
+nicths333@gmail.com
 <br>
-nicths333@gmail.com<br>
-全站内容禁止转载<br>
-Colophon：Hexo + Polar Bear + 自定义
+<br>
+Copyright  
+All content on this site is protected. No reproduction or redistribution without permission.
+<br>
+<br>
+Colophon  
+Built with Hexo and the Polar Bear theme. Custom modifications.
 <br>
 <br>
 <span>

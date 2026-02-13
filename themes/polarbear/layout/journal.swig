@@ -78,9 +78,11 @@
             {{ post.title }}
           </div>
 
-          <div class="journal-content">
+          <div class="journal-content journal-content--collapsed">
             {{ post.content }}
           </div>
+
+          <button class="journal-more" type="button" aria-expanded="false">More</button>
         </article>
       {% endif %}
     {% endfor %}
@@ -126,6 +128,23 @@
       setActive(btn);
       filter(tag);
     });
+  });
+    // 3) 展开/收起：默认折叠 4 行
+  list.addEventListener('click', function (e) {
+    var btn = e.target.closest('.journal-more');
+    if (!btn) return;
+
+    var item = btn.closest('.journal-item');
+    if (!item) return;
+
+    var content = item.querySelector('.journal-content');
+    if (!content) return;
+
+    var expanded = content.classList.toggle('journal-content--collapsed') === false;
+    // 上面这一行逻辑：toggle 后如果 collapsed 被移除了，expanded=true
+
+    btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    btn.textContent = expanded ? 'Less' : 'More';
   });
 })();
 </script>

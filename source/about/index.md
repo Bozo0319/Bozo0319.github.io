@@ -47,13 +47,3 @@ Built with Hexo and the Polar Bear theme. Custom modifications.
    style="display:inline-block;text-decoration:none;border-bottom:0;margin-right:10px">
     <img src="/assets/coding cat.png" alt="blog" style="width:24px !important;height:auto;">
 </a>  
-</span>
-<a href="https://www.douban.com/people/289970575/"
-   style="display:inline-block;text-decoration:none;border-bottom:0;margin-right:10px">
-  <img src="/assets/douban2.png" alt="豆瓣" width="24" style="height:auto;">
-</a>
-</span>
-<a href="https://weibo.com/u/8478036909"
-   style="display:inline-block;text-decoration:none;border-bottom:0;margin-right:10px">
-    <img src="/assets/weibo-logo.png" alt="微博" style="width:24px !important;height:auto;">
-</a>

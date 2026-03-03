@@ -15,51 +15,36 @@
 
     {% for post in page.posts %}
 
-      {# ===== 过滤 journal 分类 ===== #}
-      {% set is_journal = false %}
-      {% if post.categories %}
-        {% for c in post.categories.toArray() %}
-          {% if c.name == 'journal' %}
-            {% set is_journal = true %}
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-      {# ============================ #}
+      {% if page.archive %}
+        {% set year %}
+        {% set post.year = date(post.date, 'YYYY') %}
 
-      {% if not is_journal %}
-
-        {% if page.archive %}
-          {% set year %}
-          {% set post.year = date(post.date, 'YYYY') %}
-
-          {% if post.year !== year %}
-            {% set year = post.year %}
-            <div class="collection-title">
-              <h2 class="archive-year">{{ year }}</h2>
-            </div>
-          {% endif %}
+        {% if post.year !== year %}
+          {% set year = post.year %}
+          <div class="collection-title">
+            <h2 class="archive-year">{{ year }}</h2>
+          </div>
         {% endif %}
-
-        <div class="archive-post">
-          <span class="archive-post-time">
-            {% if page.archive %}
-              {{ date(post.date, 'MMM DD') }}
-            {% else %}
-              {{ date(post.date, 'YYYY-MM-DD') }}
-            {% endif %}
-          </span>
-          <span class="archive-post-title">
-            <a href="{{ url_for(post.path) }}" class="archive-post-link">
-              {{ post.title }}
-            </a>
-          </span>
-        </div>
-
       {% endif %}
+
+      <div class="archive-post">
+        <span class="archive-post-time">
+          {% if page.archive %}
+            {{ date(post.date, 'MMM DD') }}
+          {% else %}
+            {{ date(post.date, 'YYYY-MM-DD') }}
+          {% endif %}
+        </span>
+        <span class="archive-post-title">
+          <a href="{{ url_for(post.path) }}" class="archive-post-link">
+            {{ post.title }}
+          </a>
+        </span>
+      </div>
 
     {% endfor %}
   </section>
- </div>
+</div>
 
-  {% include '../_partial/pagination.swig' %}
+{% include '../_partial/pagination.swig' %}
 {% endmacro %}

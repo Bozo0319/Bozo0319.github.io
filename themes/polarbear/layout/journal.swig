@@ -1,89 +1,88 @@
 {% extends "_layout.swig" %}
 
-{% block title %}{{ page.title or 'Journal' }} - {{ config.title }}{% endblock %}
+{% block title %}
+  {% if page.title %}{{ page.title }}{% else %}Journal{% endif %} - {{ config.title }}
+{% endblock %}
 
 {% block content %}
 <section class="journal-wrap">
   <header class="journal-header">
-    <h1>{{ page.title or 'Journal' }}</h1>
+    <h1>{% if page.title %}{{ page.title }}{% else %}Journal{% endif %}</h1>
   </header>
 
-  {# ===== Tag 筛选条：只显示“被 journal 文章使用过”的 tag ===== #}
+  {# ===== 收集 journal entries，并顺便收集 jtags（用于筛选按钮）===== #}
+  {% set journal_count = 0 %}
+  {% set allTagStr = '' %}
+
+  {% for p in site.pages %}
+    {% if p.layout == 'journal_entry' %}
+      {% set journal_count = journal_count + 1 %}
+      {% if p.jtags and p.jtags.length %}
+        {% for t in p.jtags %}
+          {% set allTagStr = allTagStr + t + ' ' %}
+        {% endfor %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  {# ===== Tag 筛选条（从 jtags 去重：用“字符串包含”做简单去重）===== #}
   <div class="journal-filter">
     <button class="journal-filter-btn is-active" type="button" data-tag="__all">All</button>
 
-    {% for tag in site.tags %}
-      {% set has_journal = false %}
-
-      {% for p in tag.posts %}
-        {% set is_journal_post = false %}
-        {% if p.categories %}
-          {% for c in p.categories %}
-            {% if c.name == 'journal' %}
-              {% set is_journal_post = true %}
+    {% set seen = ' ' %}
+    {% for p in site.pages %}
+      {% if p.layout == 'journal_entry' %}
+        {% if p.jtags and p.jtags.length %}
+          {% for t in p.jtags %}
+            {# 简单去重：seen 字符串里没有 " t " 才输出 #}
+            {% set key = ' ' + t + ' ' %}
+            {% if seen.indexOf(key) < 0 %}
+              {% set seen = seen + t + ' ' %}
+              <button class="journal-filter-btn" type="button" data-tag="{{ t }}">#{{ t }}</button>
             {% endif %}
           {% endfor %}
         {% endif %}
-
-        {% if is_journal_post %}
-          {% set has_journal = true %}
-        {% endif %}
-      {% endfor %}
-
-      {% if has_journal %}
-        <button class="journal-filter-btn" type="button" data-tag="{{ tag.name }}">#{{ tag.name }}</button>
       {% endif %}
     {% endfor %}
   </div>
 
-  {# ===== 直接渲染 journal 广播（不在 swig 里排序/拼数组）===== #}
+  {# ===== 渲染 journal entries（不在 swig 里排序，继续用 JS 排序）===== #}
   <div class="journal-list" id="journalList">
-    {% set journal_count = 0 %}
+    {% for p in site.pages %}
+      {% if p.layout == 'journal_entry' %}
 
-    {% for post in site.posts %}
-      {% set is_journal = false %}
-      {% if post.categories %}
-        {% for c in post.categories %}
-          {% if c.name == 'journal' %}
-            {% set is_journal = true %}
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-
-      {% if is_journal %}
-        {% set journal_count = journal_count + 1 %}
-
-        {# 拼 data-tags #}
+        {# 拼 data-tags（来自 jtags） #}
         {% set tagStr = '' %}
-        {% if post.tags and post.tags.length %}
-          {% for t in post.tags %}
-            {% set tagStr = tagStr + t.name + ' ' %}
+        {% if p.jtags and p.jtags.length %}
+          {% for t in p.jtags %}
+            {% set tagStr = tagStr + t + ' ' %}
           {% endfor %}
         {% endif %}
 
-        <article class="journal-item" data-tags="{{ tagStr | trim }}" data-date="{{ post.date.toISOString() }}">
+        <article class="journal-item" data-tags="{{ tagStr | trim }}" data-date="{{ p.date.toISOString() }}">
           <div class="journal-meta">
-            <time datetime="{{ post.date.toISOString() }}">{{ date(post.date, "YYYY-MM-DD HH:mm") }}</time>
+            <time datetime="{{ p.date.toISOString() }}">{{ date(p.date, "YYYY-MM-DD HH:mm") }}</time>
 
-            {% if post.tags and post.tags.length %}
+            {% if p.jtags and p.jtags.length %}
               <span class="journal-tags">
-                {% for t in post.tags %}
-                  <span class="journal-tag">#{{ t.name }}</span>
+                {% for t in p.jtags %}
+                  <span class="journal-tag">#{{ t }}</span>
                 {% endfor %}
               </span>
             {% endif %}
           </div>
 
           <div class="journal-post-title">
-            {{ post.title }}
+            {% if p.title %}{{ p.title }}{% endif %}
           </div>
 
           <div class="journal-content journal-content--collapsed">
-            {{ post.content }}
+            {{ p.content }}
           </div>
 
           <button class="journal-more" type="button" aria-expanded="false">More</button>
         </article>
+
       {% endif %}
     {% endfor %}
 
@@ -129,7 +128,8 @@
       filter(tag);
     });
   });
-    // 3) 展开/收起：默认折叠 4 行
+
+  // 3) 展开/收起：默认折叠 4 行
   list.addEventListener('click', function (e) {
     var btn = e.target.closest('.journal-more');
     if (!btn) return;
@@ -141,8 +141,6 @@
     if (!content) return;
 
     var expanded = content.classList.toggle('journal-content--collapsed') === false;
-    // 上面这一行逻辑：toggle 后如果 collapsed 被移除了，expanded=true
-
     btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     btn.textContent = expanded ? 'Less' : 'More';
   });
